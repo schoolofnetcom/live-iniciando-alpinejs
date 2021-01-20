@@ -1,22 +1,17 @@
 <html>
 <head>
     <title>Iniciando com AlpineJS</title>
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
-    <style>
-        .red {
-            color: red;
-        }
-
-        .green {
-            color: green;
-        }
-    </style>
 </head>
-<body>
-    <h1 style="margin-bottom:0px">Iniciando com AlpineJS</h1>
-    <h3><i style="color: #999">x-bind, x-model, x-text e x-html</i></h3>
+<body class="container">
+    <div x-data x-init="fetch('/src/header.html').then(response => response.text()).then(html => { $refs.header.innerHTML = html })">
+        <div x-ref="header"></div>
+    </div>
+    <h3><i style="color: #999">x-bind, x-model, x-text e x-html (Data Binding)</i></h3>
 
     <!-- CODIGO AQUI -->
-</body>
-</html>
+    
+    <div x-data="" x-init="fetch('/src/footer.html').then(response => response.text()).then(html => { $refs.footer.innerHTML = html })">
+        <div x-ref="footer"></div>
+    </div>
