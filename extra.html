@@ -9,17 +9,21 @@
 
     <!-- CODIGO AQUI -->
 
-    <div x-data="{ open: false }">
+    <div x-data="{ show: false }">
         <button
             @mouseenter.once="
                 fetch('/src/lista.html')
                     .then(response => response.text())
                     .then(html => { $refs.dropdown.innerHTML = html })
             "
-            @click="open = true"
+            @click="show = true"
         >Show Dropdown</button>
     
-        <div x-ref="dropdown" x-show="open" @click.away="open = false">
+        <div 
+            x-ref="dropdown" 
+            x-show="show" 
+            @click.away="show = false"
+        >
             Loading Spinner...
         </div>
     </div>

@@ -8,9 +8,53 @@
     <div x-data x-init="fetch('/src/header.html').then(response => response.text()).then(html => { $refs.header.innerHTML = html })">
         <div x-ref="header"></div>
     </div>
-    <h3><i style="color: #999">x-on (Propriedades Mágicas)</i></h3>
+    <h3><i style="color: #999">$refs, $el, $watch, $event, $dispatch (Propriedades Mágicas)</i></h3>
 
     <!-- CODIGO AQUI -->
+
+    <!-- <div x-data>
+        <p x-ref="my_custom_p">Minha mensagem</p>
+        <button
+            @click="$refs.my_custom_p.innerText = 'valor atualizado'"
+        >Alterar texto via REF</button>
+    </div>
+
+    <button x-data @click="$el.remove()">
+        $el
+    </button>
+
+    <div 
+        x-data="{ name : '' }"
+        x-init="$watch('name', (value) => { console.log(value) })"
+    >
+        <input x-model="name">
+    </div> -->
+
+    <div 
+        x-data="{ name : '' }"
+        x-on:mycustomevent="name = $event.detail.name + $event.detail.lastname"
+    >
+        <p x-text="name"></p>
+        <button 
+            @click="$dispatch('mycustomevent', {
+                name: 'Thiago',
+                lastname: 'Bertolino'
+            })"
+        >
+            Adicionar Nome
+        </button>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     
     <div x-data="" x-init="fetch('/src/footer.html').then(response => response.text()).then(html => { $refs.footer.innerHTML = html })">
         <div x-ref="footer"></div>

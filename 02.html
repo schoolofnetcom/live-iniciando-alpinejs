@@ -11,6 +11,30 @@
     <h3><i style="color: #999">x-show, x-if (Condicionais)</i></h3>
 
     <!-- CODIGO AQUI -->
+    <div x-data="{ show : false }">
+        <p x-show="show">Minha mensagem</p>
+        <button x-on:click="show = !show">
+            Mostrar
+        </button>
+    </div>
+
+    <div x-data="{ showIf : true }">
+        <template x-if="showIf">
+            <div>
+                <p>Minha mensagem com x-if</p>
+            </div>
+        </template>
+    </div>
+
+
+
+
+
+
+
+
+
+
     
     <div x-data="" x-init="fetch('/src/footer.html').then(response => response.text()).then(html => { $refs.footer.innerHTML = html })">
         <div x-ref="footer"></div>

@@ -11,6 +11,30 @@
     <h3><i style="color: #999">x-on (Eventos)</i></h3>
 
     <!-- CODIGO AQUI -->
+
+    <div x-data="{ name : 'Thiago' }">
+        <p x-text="name"></p>
+        <button x-on:click="name = 'CLICK'">Alterar com click</button>
+        <button x-on:mouseover="name = 'MOUSEOVER'">MOUSEOVER</button>
+        <button x-on:mouseenter="name = 'MOUSEENTER'">MOUSEENTER</button>
+        <button @mouseleave="name = 'MOUSELEAVE'">MOUSELEAVE</button>
+    </div>
+
+    <div x-data="{ windowWidth: '0' }">
+        <div @resize.window="windowWidth = window.outerWidth"></div>
+        <p x-text="windowWidth"></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     
     <div x-data="" x-init="fetch('/src/footer.html').then(response => response.text()).then(html => { $refs.footer.innerHTML = html })">
         <div x-ref="footer"></div>
